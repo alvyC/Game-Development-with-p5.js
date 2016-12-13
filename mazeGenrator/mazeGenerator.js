@@ -1,15 +1,18 @@
 var rows, cols;
-var w = 40; // so we have a canvas of 400 by 400, and row, columns are 40 by 40
+var w = 10; // so we have a canvas of 400 by 400, and row, columns are 40 by 40
             // so there will be 10 rows and  10 cols
 
 var grid = [];
+
 var current;
+
+var stack = [];
 
 function setup() {
   createCanvas(400, 400);
   cols = floor(width/ w);
   rows = floor(width/ w);
-  frameRate(1);
+  frameRate(4);
 
   for (var j = 0; j < cols; j++) {
     for (var i = 0; i < rows; i++) {
@@ -30,17 +33,23 @@ function draw() {
   current.visited = true;
   current.highlight();
 
-  // step 1: pick a random neighbor
+  // step 1: pick a random neighbor of "current" cell
   var next = current.checkNeighbors();
 
   if (next) {
     next.visited = true;
+
+    // step 2
+    stack.push(current);
 
     // step 3
     removeWalls(current, next);
 
     // step 4
     current = next;
+  }
+  else if (stack.length > 0) {
+    current = stack.pop();
   }
 }
 
