@@ -42,6 +42,14 @@ function Cell(i, j) {
     }
   }
 
+  this.highlight = function() {
+    var x = this.i * w;
+    var y = this.j * w;
+    noStroke();
+    fill(0, 0, 255, 100);
+    rect(x, y, w, w);
+  }
+
   this.show = function() {
     var x = this.i * w;
     var y = this.j * w;
@@ -68,7 +76,7 @@ function Cell(i, j) {
 
     // if cell is visited, then draw a colored rectangle
     if (this.visited) {
-      console.log("here");
+      noStroke();
       fill(255, 0, 255, 100);
       rect(x, y, w, w);
     }
