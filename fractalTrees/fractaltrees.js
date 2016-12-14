@@ -1,5 +1,7 @@
 var slider;
 var tree = [];
+var leaves = [];
+var count = 0;
 
 function setup() {
   createCanvas(400, 400);
@@ -19,6 +21,16 @@ function mousePressed() {
     }
     tree[i].finished = true;
   }
+  count++;
+
+  if (count === 5) {
+    for (var i = 0; i < tree.length; i++) {
+      if (!tree[i].finished) {
+        var leaf = tree[i].end.copy();
+        leaves.push(leaf);
+      }
+    }
+  }
 }
 
 function draw() {
@@ -26,5 +38,13 @@ function draw() {
 
   for (var i = 0; i < tree.length; i++){
     tree[i].show();
+    //tree[i].jitter();
+  }
+
+  for (var i = 0; i < leaves.length; i++) {
+    fill(255, 0, 100, 100);
+    noStroke();
+    ellipse(leaves[i].x, leaves[i].y, 8, 8);
+    leaves[i].y += random(0, 2);
   }
 }
