@@ -21,4 +21,8 @@ function Snake() {
     this.xspeed = x;
     this.yspeed = y;
   }
+
+  this.eat = function() {
+
+  }
 }
