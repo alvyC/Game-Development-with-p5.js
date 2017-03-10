@@ -22,7 +22,13 @@ function Snake() {
     this.yspeed = y;
   }
 
-  this.eat = function() {
-
+  this.eat = function(pos) {
+    var d = dist(this.x, this.y, pos.x, pos.y);
+    if (d < 1) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 }
