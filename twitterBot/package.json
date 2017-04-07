@@ -4,7 +4,7 @@
   "description": "This is twitter bot.",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
+    "startTwitterBot": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alvy",

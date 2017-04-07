@@ -27,7 +27,7 @@ var tweet = {
   status: '#codingrainbow from node.js'
 }
 
-T.post('statuses/update', tweet, tweeted);
+//T.post('statuses/update', tweet, tweeted);
 
 function tweeted(err, data, response) {
   console.log(data);
